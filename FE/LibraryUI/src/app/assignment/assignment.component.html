@@ -1,0 +1,52 @@
+<ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
+<div class="container">
+        <div class="page-header" text-center>
+            <h4>Assign Book
+            </h4>
+        </div>
+        <div class="row" style="padding-bottom: 8cm">
+            <div class="col-xs-12 col-sm-10 col-md-5 col-sm-offset-1 col-md-offset-2">
+            <form (ngSubmit)="assignBook(f)" #f="ngForm" ngNativeValidate >
+                <div id="user-data">
+                <div class="form-group">
+                    <label for="id">Book Id</label>
+                    <input type="id" id="id" [(ngModel)]="id" name="id" class="form-control" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="title">Book title</label>
+                    <input type="text" id="title" [(ngModel)]="book.title" name="title" class="form-control" disabled>
+                </div>
+                <div class="form-group">
+                        <label for="assignee">Assignee</label>
+                        <input type="text" id="assignee" ngModel name="assignee" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="assignee">Start Date</label>
+                    <input type="text"
+                            name="startDate"
+                            placeholder="MM/DD/YYYY"
+                            class="form-control"
+                            [bsConfig]="{ isAnimated: true }"
+                            ngModel
+                            containerClass="dark-blue"
+                            bsDatepicker required>
+                </div>
+                <div class="form-group">
+                        <label for="assignee">Due Date</label>
+                        <input type="text"
+                                name="dueDate"
+                                placeholder="MM/DD/YYYY"
+                                class="form-control"
+                                [bsConfig]="{ isAnimated: true }"
+                                ngModel
+                                containerClass="dark-blue"
+                                bsDatepicker required>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" type="submit" >Assign</button>
+            </form>
+            </div>
+        </div>
+    </div>
+          

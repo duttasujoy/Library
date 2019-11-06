@@ -1,0 +1,58 @@
+<ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
+<div class="row m-3" style="padding-bottom: 2cm" >
+  <div class="col-md-6 col-md-offset-3">
+    <h2 class="text-center">{{book.title}}</h2>
+
+    <h6 class="text-center">{{book.subtitle}}</h6>
+
+    <div class=" m-3">
+      <img class="rounded center-block"
+           src="/assets/books.jfif">
+    </div>
+
+
+    <dl>
+      <!-- <dt>Description</dt>
+      <dd>
+        <p [innerHtml]="'Hello this is the book <strong>description</strong> by binding to [innerHtml] we can use HTML tags'"></p>
+      </dd> -->
+
+      <dt>Authors</dt>
+      <dd>{{book.author}}</dd>
+
+      <dt>Categories</dt>
+      <dd>
+        <span class="mr-1 badge badge-pill badge-default">
+          {{book.category}}
+        </span>
+        
+      </dd>
+
+      <dt>Publisher</dt>
+      <dd>{{book.publisher}}</dd>
+      <!-- <dt>Due Date</dt>
+      <div class="row">
+          <div class="pr-3 pb-3">
+            <bs-datepicker-inline [bsValue]="bsInlineValue"></bs-datepicker-inline>
+          </div>
+        </div> -->
+    </dl>
+    
+
+    <p>
+      <a [routerLink]="['/assign',id]">
+      <button type="button"
+              class="btn btn-primary" >Assign
+      </button></a>
+      <button type="button"
+              class="btn btn-default" (click)="removeBook()">Remove From Library
+      </button>
+      <a [routerLink]="['/history',id,book.title]">
+        <button type="button"
+                class="btn btn-primary" >View History
+        </button></a>
+    </p>
+
+
+  </div>
+</div>
